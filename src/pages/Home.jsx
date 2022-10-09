@@ -5,9 +5,10 @@ import {addCart} from '../actions'
 
 
 const Home = (props) => {
-  console.log(props.userList,props.cart,props.addCart);
+
+  console.log(props.userList,props.user,props.addUser);
   return (
-    <div style={{display: 'flex', flexWrap:'wrap',width: '1000px',justifyContent: 'center',gap:'1rem',margin:'2rem auto'}}>
+    <div style={{display: 'flex', flexWrap:'wrap',width: '1000px',justifyContent: 'center',gap:'1rem',margin:'2rem auto',minHeight:'calc(100vh - 160px)' }}>
       
       {props.userList.map((user) =>(
         <div style={{width:'18rem',border: '1px solid gray', borderRadius: '5px'}}>
@@ -18,7 +19,17 @@ const Home = (props) => {
             <h2>{user.name}</h2>
             <h3>{user.location}</h3>
             <h3>{user.age}</h3>
-            <button onClick={()=>props.addCart(user)}>Add Cart</button>  
+            <button style={{
+            padding: '5px 1rem',
+            backgroundColor: '#458daa',
+            border: '1px solid #0c394b',
+            color: 'white',
+            fontSize: '1rem',
+            borderRadius: '5px',
+            cursor:'pointer'
+            
+            
+          }} onClick={()=>props.addCart(user)}>Add User</button>  
             </div>
 
           </div>
@@ -33,7 +44,7 @@ const Home = (props) => {
 const mapStateToProps = (state) =>{
   return {
     userList: state.userList,
-    cart:state.cart
+    user:state.user
   }
 }
 

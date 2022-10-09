@@ -12,8 +12,8 @@ const Navbar = () => {
           <Link style={{color:'#fff',textDecoration:'none',fontSize:'2rem',marginLeft:'2rem'}} to='/'>
             Home
           </Link>
-          <Link to='/cart' style={{color:'#fff',textDecoration:'none',fontSize:'2rem',marginLeft:'2rem'}}>
-            Cart
+          <Link to='/user' style={{color:'#fff',textDecoration:'none',fontSize:'2rem',marginLeft:'2rem'}}>
+            Users
           </Link> 
            <Link to='/create' style={{color:'#fff',textDecoration:'none',fontSize:'2rem',marginLeft:'2rem'}}>
             Create
