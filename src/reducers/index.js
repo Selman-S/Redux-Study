@@ -17,7 +17,7 @@ export const reducer =(state=INITIAL_STATE,action) => {
       
      }
      case 'CREATE_USER':
-      console.log(action.payload);
+   
       return {...state,userList:[...state.userList,{
         id:state.userList.length+1,
         name:action.payload.name,
@@ -25,7 +25,13 @@ export const reducer =(state=INITIAL_STATE,action) => {
         age:action.payload.age,
         image:action.payload.image,
       }]}
-     
+
+      case 'DELETE_USER':
+   
+        
+      return { ...state,userList:[...state.userList.filter((user) => user.id !== action.payload.id)]}
+      case 'REMOVE_USER':
+        return { ...state,user:[...state.user.filter((u)=>u.id!==action.payload.id)]}
     
     default:
       return state;

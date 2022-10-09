@@ -14,7 +14,7 @@ const Create = props => {
   const handleUser = e => {
     e.preventDefault()
     props.createUser(user)
-    console.log(user);
+
     setUser(init)
   }
   return (

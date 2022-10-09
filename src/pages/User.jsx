@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {remove} from '../actions'
 const Cart = (props) => {
-  console.log(props);
+
   return (
-    <div style={{display: 'flex', flexWrap:'wrap',width: '1000px',justifyContent: 'center',gap:'1rem',margin:'2rem auto'}}>
+    <div style={{display: 'flex', flexWrap:'wrap',maxWidth: '1000px',justifyContent: 'center',gap:'1rem',margin:'2rem auto'}}>
       {props.user.map(user => (
          <div style={{width:'18rem',border: '1px solid gray', borderRadius: '5px'}}>
          <div>
@@ -24,7 +24,7 @@ const Cart = (props) => {
             cursor:'pointer'
             
             
-          }} onClick={()=>props.addCart(user)}>Delete User</button>  
+          }} onClick={()=>props.remove(user)}>remove</button>  
            </div>
 
          </div>
@@ -38,4 +38,4 @@ const mapStateToProps = state => {
     user:state.user
   }
 }
-export default connect(mapStateToProps) (Cart)
+export default connect(mapStateToProps,{remove}) (Cart)

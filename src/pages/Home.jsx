@@ -1,14 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addCart} from '../actions'
+import {addUser} from '../actions'
+import {deleteUser} from '../actions'
 
 
 
 const Home = (props) => {
 
-  console.log(props.userList,props.user,props.addUser);
+
   return (
-    <div style={{display: 'flex', flexWrap:'wrap',width: '1000px',justifyContent: 'center',gap:'1rem',margin:'2rem auto',minHeight:'calc(100vh - 160px)' }}>
+    <div style={{display: 'flex', flexWrap:'wrap',maxWidth: '1000px',justifyContent: 'center',gap:'1rem',margin:'2rem auto',minHeight:'calc(100vh - 160px)' }}>
       
       {props.userList.map((user) =>(
         <div style={{width:'18rem',border: '1px solid gray', borderRadius: '5px'}}>
@@ -29,7 +30,19 @@ const Home = (props) => {
             cursor:'pointer'
             
             
-          }} onClick={()=>props.addCart(user)}>Add User</button>  
+          }} onClick={()=>props.addUser(user)}>Add User</button>  
+           <button style={{
+            padding: '5px 1rem',
+            backgroundColor: '#e96b5a',
+            border: '1px solid #681816',
+            color: 'white',
+            fontSize: '1rem',
+            borderRadius: '5px',
+            cursor:'pointer',
+            marginLeft: '10px',
+            
+            
+          }} onClick={()=>props.deleteUser(user)}>Delete User</button>  
             </div>
 
           </div>
@@ -48,4 +61,4 @@ const mapStateToProps = (state) =>{
   }
 }
 
-export default connect(mapStateToProps, {addCart})(Home) 
+export default connect(mapStateToProps, {addUser,deleteUser})(Home) 
